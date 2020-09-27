@@ -29,5 +29,5 @@ def test_image(img_path):
     plt.show()
 
 if __name__ == '__main__':
-    img_path = sys.argv[1]
-    test_image(img_path)
+    image_path = sys.argv[1]
+    test_image(image_path)
