@@ -189,8 +189,10 @@ class CenterFace(nn.Module):
     heatmap, heatmap offsets, scale, landmarks
     """
     def __init__(self, base_name='mobilenetv2',
-                        heads={'hm':1, 'hm_offset':2, 'wh':2, 'landmarks':10},
+                        heads=None,
                         head_conv=24, pretrained = True):
+        if heads is None:
+            heads = {'hm':1, 'hm_offset':2, 'wh':2, 'landmarks':10}
         super(CenterFace, self).__init__()
         self.heads = heads
         
