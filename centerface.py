@@ -56,8 +56,7 @@ class CenterFace(object):
                 lms = np.empty(shape=[0, 10], dtype=np.float32)
         if self.landmarks:
             return dets, lms
-        else:
-            return dets
+        return dets
 
     def decode(self, heatmap, scale, offset, landmark, size, threshold=0.1):
         heatmap = np.squeeze(heatmap)
@@ -91,8 +90,7 @@ class CenterFace(object):
                 lms = lms[keep, :]
         if self.landmarks:
             return boxes, lms
-        else:
-            return boxes
+        return boxes
 
     @staticmethod
     def nms(boxes, scores, nms_thresh):
