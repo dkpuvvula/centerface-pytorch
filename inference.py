@@ -14,7 +14,8 @@ def test_image(img_path):
         dets = centerface(frame, threshold=0.35)
 
     for det in dets:
-        boxes, score = det[:4], det[4]
+        #boxes, score = det[:4], det[4]
+        boxes = det[:4]
         cv2.rectangle(frame, (int(boxes[0]), int(boxes[1])), (int(boxes[2]), int(boxes[3])), (2, 255, 0), 2)
     if landmarks:
         for lm in lms:
