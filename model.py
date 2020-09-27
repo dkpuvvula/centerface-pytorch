@@ -187,7 +187,7 @@ class CenterFace(nn.Module):
     """
     def __init__(self, base_name='mobilenetv2',
                         heads=None,
-                        head_conv=24, pretrained = True):
+                        head_conv=24):
         if heads is None:
             heads = {'hm':1, 'hm_offset':2, 'wh':2, 'landmarks':10}
         super(CenterFace, self).__init__()
