@@ -3,7 +3,7 @@ import cv2
 import datetime
 import torch
 
-class CenterFace(object):
+class CenterFace:
     def __init__(self, landmarks=True):
         self.landmarks = landmarks
         if self.landmarks:
