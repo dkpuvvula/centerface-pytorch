@@ -224,14 +224,6 @@ class CenterFace(nn.Module):
         x = self.backbone(x)
         x = self.fpn(x)
         return self.hm(x), self.wh(x), self.hm_offset(x), self.landmarks(x)
-        '''
-        res = {}
-        res['hm'] = self.hm(x)
-        res['hm_offset'] = self.hm_offset(x)
-        res['wh'] = self.wh(x)
-        res['landmarks'] = self.landmarks(x)
-        return [res]
-        '''
 '''
 import torch
 input = torch.zeros([1,3,32,32])
