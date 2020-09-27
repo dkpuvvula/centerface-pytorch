@@ -1,5 +1,4 @@
 import cv2
-import os
 import sys
 from centerface import CenterFace
 import matplotlib.pyplot as plt
