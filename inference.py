@@ -25,7 +25,7 @@ def test_image(img_path):
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     plt.figure(figsize=(32,32))
     plt.imshow(frame)
-    plt.savefig('result_' + img_path, bbox_inches='tight')
+    #plt.savefig('result_' + img_path, bbox_inches='tight')
     plt.show()
 
 if __name__ == '__main__':
