@@ -34,7 +34,8 @@ class InvertedResidual(nn.Module):
     def __init__(self, inp, oup, stride, expand_ratio):
         super(InvertedResidual, self).__init__()
         self.stride = stride
-        assert stride in [1, 2]
+        if stride not in [1, 2]:
+            raise AssertionError
 
         hidden_dim = int(round(inp * expand_ratio))
         self.use_res_connect = self.stride == 1 and inp == oup
@@ -170,7 +171,8 @@ class FPN(nn.Module):
 
     def forward(self, layers):
         layers = list(layers)
-        assert len(layers) > 1
+        if len(layers) <= 1:
+            raise AssertionError
         x = self.conv(layers[-1])
 
         x = self.p3([x, layers[-2]])
