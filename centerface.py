@@ -35,7 +35,8 @@ class CenterFace(object):
         print("run times = ", end - begin)
         return self.postprocess(heatmap, lms, offset, scale, threshold)
 
-    def transform(self, h, w):
+    @staticmethod
+    def transform(h, w):
         img_h_new, img_w_new = int(np.ceil(h / 32) * 32), int(np.ceil(w / 32) * 32)
         scale_h, scale_w = img_h_new / h, img_w_new / w
         return img_h_new, img_w_new, scale_h, scale_w
@@ -93,7 +94,8 @@ class CenterFace(object):
         else:
             return boxes
 
-    def nms(self, boxes, scores, nms_thresh):
+    @staticmethod
+    def nms(boxes, scores, nms_thresh):
         x1 = boxes[:, 0]
         y1 = boxes[:, 1]
         x2 = boxes[:, 2]
