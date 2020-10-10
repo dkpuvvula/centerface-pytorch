@@ -4,6 +4,11 @@ from centerface import CenterFace
 import matplotlib.pyplot as plt
 
 def test_image(img_path):
+    """[Face detection]
+
+    Args:
+        img_path ([str]): [path to the image]
+    """
     frame = cv2.imread(img_path)
     h, w = frame.shape[:2]
     landmarks = True
