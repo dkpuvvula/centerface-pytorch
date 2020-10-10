@@ -4,7 +4,14 @@ import datetime
 import torch
 
 class CenterFace:
+    """[Face Detection with landmark points]
+    """
     def __init__(self, landmarks=True):
+        """[summary]
+
+        Args:
+            landmarks (bool, optional): [description]. Defaults to True.
+        """
         self.landmarks = landmarks
         if self.landmarks:
             self.net = torch.load('model_weights/centerface.pt')
@@ -17,6 +24,15 @@ class CenterFace:
         return self.inference(img, threshold)
 
     def inference(self, img, threshold):
+        """[performs inference on the image]
+
+        Args:
+            img ([numpy array]): [image as array]
+            threshold ([float]): [nms threshold]
+
+        Returns:
+            [numpy array]: [predictions]
+        """
         blob = cv2.dnn.blobFromImage(img, scalefactor=1.0, size=(self.img_w_new, self.img_h_new), mean=(0, 0, 0), swapRB=True, crop=False)
         
         begin = datetime.datetime.now()
